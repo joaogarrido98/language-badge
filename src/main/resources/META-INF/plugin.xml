@@ -1,0 +1,17 @@
+<idea-plugin>
+  <id>com.example.language-badge</id>
+  <name>Language Badges</name>
+  <version>1.0</version>
+  <vendor>Joao Garrido</vendor>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <description>
+    A plugin that adds language ISO code as badges in the Project View for JSON files in the "language" folder.
+  </description>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <projectViewNodeDecorator implementation="com.example.languagebadge.LanguageFileDecorator" />
+  </extensions>
+  <idea-version since-build="213" until-build="243.*" />
+</idea-plugin>
