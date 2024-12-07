@@ -11,43 +11,40 @@ import com.intellij.ui.SimpleTextAttributes
 class LanguageFileDecorator : ProjectViewNodeDecorator {
     private val languageMap = mapOf(
         "1.json" to "EN",
-        "2.json" to "CN",
+        "2.json" to "CT",
         "3.json" to "ES",
         "4.json" to "FR",
-        "5.json" to "DA",
+        "5.json" to "DE",
         "6.json" to "IT",
-        "7.json" to "DK",
+        "7.json" to "DA",
         "8.json" to "SV",
         "9.json" to "NO",
-        "10.json" to "ZH",
+        "10.json" to "CS",
         "19.json" to "BG",
         "20.json" to "GR",
-        "21.json" to "HU",
-        "22.json" to "SV",
-        "24.json" to "DA",
-        "25.json" to "NO",
-        "26.json" to "BG",
-        "27.json" to "CS",
-        "28.json" to "SK",
-        "30.json" to "AUS",
+        "21.json" to "PL",
+        "22.json" to "PT",
+        "23.json" to "RO",
+        "24.json" to "CZ",
+        "25.json" to "HU",
+        "26.json" to "SK",
+        "28.json" to "NL",
+        "29.json" to "ET",
+        "30.json" to "AU",
         "31.json" to "RU",
-        "32.json" to "USA",
+        "32.json" to "US",
         "33.json" to "BR",
         "34.json" to "JP",
-        "36.json" to "LATAM",
+        "36.json" to "ES",
         "37.json" to "SR",
+        "38.json" to "TK",
     )
 
     override fun decorate(node: ProjectViewNode<*>, data: PresentationData) {
         val file: VirtualFile = node.virtualFile ?: return
 
-        if (file.parent?.name == "language" && file.extension == "json") {
-            var targetWidth = 20
-            if (file.name.length == 7) {
-                targetWidth = 19
-            }
-
-            val paddedFileName = file.name.padEnd(targetWidth)
+        if (file.parent?.name == "language" && file.extension == "go") {
+            val paddedFileName = file.name.padEnd(20)
             data.clearText()
             data.addText(paddedFileName, SimpleTextAttributes.REGULAR_ATTRIBUTES)
 
