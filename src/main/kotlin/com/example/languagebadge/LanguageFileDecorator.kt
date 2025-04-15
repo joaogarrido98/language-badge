@@ -10,44 +10,41 @@ import com.intellij.ui.SimpleTextAttributes
 
 class LanguageFileDecorator : ProjectViewNodeDecorator {
     private val languageMap = mapOf(
-        "1.json" to "EN",
-        "2.json" to "CN",
-        "3.json" to "ES",
-        "4.json" to "FR",
-        "5.json" to "DA",
-        "6.json" to "IT",
-        "7.json" to "DK",
-        "8.json" to "SV",
-        "9.json" to "NO",
-        "10.json" to "ZH",
-        "19.json" to "BG",
-        "20.json" to "GR",
-        "21.json" to "HU",
-        "22.json" to "SV",
-        "24.json" to "DA",
-        "25.json" to "NO",
-        "26.json" to "BG",
-        "27.json" to "CS",
-        "28.json" to "SK",
-        "30.json" to "AUS",
-        "31.json" to "RU",
-        "32.json" to "USA",
-        "33.json" to "BR",
-        "34.json" to "JP",
-        "36.json" to "LATAM",
-        "37.json" to "SR",
+        "lang1.go" to "EN",
+        "lang2.go" to "CT",
+        "lang3.go" to "ES",
+        "lang4.go" to "FR",
+        "lang5.go" to "DE",
+        "lang6.go" to "IT",
+        "lang7.go" to "DA",
+        "lang8.go" to "SV",
+        "lang9.go" to "NO",
+        "lang10.go" to "CS",
+        "lang19.go" to "BG",
+        "lang20.go" to "GR",
+        "lang21.go" to "PL",
+        "lang22.go" to "PT",
+        "lang23.go" to "RO",
+        "lang24.go" to "CZ",
+        "lang25.go" to "HU",
+        "lang26.go" to "SK",
+        "lang28.go" to "NL",
+        "lang29.go" to "ET",
+        "lang30.go" to "AU",
+        "lang31.go" to "RU",
+        "lang32.go" to "US",
+        "lang33.go" to "BR",
+        "lang34.go" to "JP",
+        "lang36.go" to "ES",
+        "lang37.go" to "SR",
+        "lang38.go" to "TK",
     )
 
     override fun decorate(node: ProjectViewNode<*>, data: PresentationData) {
         val file: VirtualFile = node.virtualFile ?: return
 
-        if (file.parent?.name == "language" && file.extension == "json") {
-            var targetWidth = 20
-            if (file.name.length == 7) {
-                targetWidth = 19
-            }
-
-            val paddedFileName = file.name.padEnd(targetWidth)
+        if (file.parent?.name == "language" && file.extension == "go") {
+            val paddedFileName = file.name.padEnd(20)
             data.clearText()
             data.addText(paddedFileName, SimpleTextAttributes.REGULAR_ATTRIBUTES)
 
